@@ -15,21 +15,21 @@ defmodule CodeCorps.StripeCustomerPolicyTest do
 
     end
 
-    test "returns false when user id is not the StripeCustomer id" do
+    test "returns false when user id is not the StripeCustomer's user_id" do
 
     end
   end
 
   describe "show?" do
-    test "returns true when user is viewing their own information" do
-
-    end
-
     test "returns true when user is an admin" do
 
     end
 
-    test "returns false when user id is not the StripeCustomer id" do
+    test "returns true when user is viewing their own information" do
+
+    end
+
+    test "returns false when user id is not the StripeCustomer's user_id" do
 
     end
   end
