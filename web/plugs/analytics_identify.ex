@@ -7,9 +7,9 @@ defmodule CodeCorps.Plug.AnalyticsIdentify do
 
   def call(conn, _opts), do: conn |> identify
 
-  def identify(%{assigns: %{current_user: user}} = conn) do
+  defp identify(%{assigns: %{current_user: user}} = conn) do
     CodeCorps.Analytics.Segment.identify(user)
     conn
   end
-  def identify(conn), do: conn
+  defp identify(conn), do: conn
 end
