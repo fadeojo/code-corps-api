@@ -91,7 +91,6 @@ defmodule Canary.Abilities do
 
     def can?(%User{} = user, :create, Skill), do: SkillPolicy.create?(user)
 
-    def can?(%User{} = user, :index, StripeAccount), do: StripeAccountPolicy.index?(user)
     def can?(%User{} = user, :show, StripeAccount), do: StripeAccountPolicy.show?(user)
 
     def can?(%User{} = user, :create, %Changeset{data: %UserCategory{}} = changeset), do: UserCategoryPolicy.create?(user, changeset)
