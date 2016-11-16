@@ -16,9 +16,10 @@ defmodule CodeCorps.StripeAccountPolicyTest do
 
     test "returns true when user is owner of organization" do
       user = insert(:user)
-      stripe_account = insert(:stripe_account)
+      organization = insert(:organization)
+      insert(:organization_membership, role: "owner", member: user, organization: organization)
 
-      insert(:organization_membership, role: "owner", member: user)
+      stripe_account = insert(:stripe_account, organization: organization)
 
       assert show?(user, stripe_account)
     end
