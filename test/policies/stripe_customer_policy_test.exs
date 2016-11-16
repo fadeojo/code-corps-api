@@ -24,6 +24,7 @@ defmodule CodeCorps.StripeCustomerPolicyTest do
     test "returns false when user id is not the StripeCustomer's user_id" do
       [user, another_user] = insert_pair(:user)
       stripe_customer = insert(:stripe_customer, user: user)
+
       refute show?(another_user, stripe_customer)
     end
   end
