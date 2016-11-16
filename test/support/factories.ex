@@ -108,6 +108,7 @@ defmodule CodeCorps.Factories do
 
   def stripe_customer_factory do
     %CodeCorps.StripeCustomer{
+      user: build(:user),
       id_from_stripe: sequence(:id_from_stripe, &"stripe_id_#{&1}")
     }
   end
