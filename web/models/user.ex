@@ -9,7 +9,10 @@ defmodule CodeCorps.User do
   import CodeCorps.Base64ImageUploader
   import CodeCorps.Validators.SlugValidator
 
-  alias CodeCorps.SluggedRoute
+  alias CodeCorps.{
+    SluggedRoute,
+    StripeCustomer
+  }
   alias Comeonin.Bcrypt
   alias Ecto.Changeset
 
@@ -31,6 +34,7 @@ defmodule CodeCorps.User do
     field :state_transition, :string, virtual: true
 
     has_one :slugged_route, SluggedRoute
+    has_one :stripe_customer, StripeCustomer
 
     has_many :organization_memberships,
       CodeCorps.OrganizationMembership,
