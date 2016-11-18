@@ -4,12 +4,13 @@ defmodule CodeCorps.StripeCustomerController do
 
   alias CodeCorps.StripeCustomer
 
+  plug :load_and_authorize_resource, model: StripeCustomer, only: [:show]
   plug :load_and_authorize_changeset, model: StripeCustomer, only: [:create]
   plug JaResource
 
   def handle_create(conn, attributes) do
     attributes
-    |> Stripe.Customer.create
+    |> CodeCorps.StripeService.create_customer
     |> handle_stripe_response(attributes, conn)
   end
 
