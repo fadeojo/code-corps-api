@@ -91,6 +91,7 @@ defmodule CodeCorps.Router do
 
   scope "/", CodeCorps, host: "api." do
     pipe_through [:api, :bearer_auth, :current_user]
+
     get "/:slug", SluggedRouteController, :show
     get "/:slug/projects", ProjectController, :index
     get "/:slug/:project_slug", ProjectController, :show

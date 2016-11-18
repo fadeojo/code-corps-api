@@ -1,6 +1,4 @@
 defmodule CodeCorps.StripeCustomerPolicy do
-  import CodeCorps.Helpers.Policy
-
   alias CodeCorps.StripeCustomer
   alias CodeCorps.User
   alias Ecto.Changeset
